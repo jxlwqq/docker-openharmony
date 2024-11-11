@@ -1,6 +1,6 @@
 # Docker OpenHarmony
 
-OpenHarmony 容器镜像，基于 `ubuntu:22.04`：
+OpenHarmony 5.0 容器镜像，基于 `ubuntu:22.04`：
 * JDK 使用 `java-17-amazon-corretto-jdk`；
 * commandline-tools 版本：`5.0.3.906`，由于下载过程需要 Auth 认证，暂时只能在 https://developer.huawei.com/consumer/cn/download/ 手动下载；
 * 内置 json5，方便 jq 读取标准的 JSON 文本；
