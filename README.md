@@ -14,3 +14,8 @@ OpenHarmony 5.0 容器镜像，基于 `ubuntu:22.04`：
 
 * 由于镜像大小超过了 14 GB，未来将尝试精简。
 
+## 参考
+
+* https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-commandline-get-V5
+* https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-command-line-building-app-V5
+
