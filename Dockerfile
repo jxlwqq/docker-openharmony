@@ -55,5 +55,8 @@ RUN mkdir -p $HOME/.hvigor/wrapper/tools && \
     cd $HOME/.hvigor/wrapper/tools && \
     npm install
 
+# Disable git safe directory check as this is causing GHA to fail on GH Runners
+RUN git config --global --add safe.directory '*'
+
 # smoke test
 RUN ohpm -v
