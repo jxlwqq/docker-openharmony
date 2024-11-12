@@ -16,6 +16,7 @@ OpenHarmony 5.0 容器镜像，基于 `ubuntu:22.04`：
 
 ## 参考
 
-* https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-commandline-get-V5
-* https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-command-line-building-app-V5
+* [Command Line Tools 获取命令行工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-commandline-get-V5)
+* [Command Line Tools 搭建流水线](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-command-line-building-app-V5)
+* [DevEco Studio 无网络环境配置指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-no-network-V5)
 
