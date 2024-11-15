@@ -9,9 +9,9 @@ OpenHarmony 5.0 容器镜像，基于 `ubuntu:22.04`：
 ## 使用
 
 ```bash
-docker pull jxlwqq/openharmomy:5.0.3.906
+docker pull jxlwqq/openharmony:5.0.3.906
 
-docker run -it --rm jxlwqq/openharmomy:5.0.3.906 ohpm -v
+docker run -it --rm jxlwqq/openharmony:5.0.3.906 ohpm -v
 ```
 
 ## Changelog
