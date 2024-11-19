@@ -5,7 +5,9 @@ SHELL ["/bin/bash", "-c"]
 ## Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
-RUN apt-get update && apt-get -y install locales curl gnupg
+RUN apt-get update && \
+    apt-get -y install locales curl gnupg && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN locale-gen en_US.UTF-8 || true
 
@@ -15,7 +17,8 @@ RUN curl -fsSL https://apt.corretto.aws/corretto.key | gpg --dearmor -o /usr/sha
     echo "deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main" | tee /etc/apt/sources.list.d/corretto.list
 
 ## Install dependencies
-RUN apt-get update && apt-get install --no-install-recommends -y \
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y \
     java-17-amazon-corretto-jdk \
     wget \
     git \
@@ -27,13 +30,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     unzip \
     ssh \
     jq \
-    tzdata
+    tzdata && \
+    rm -rf /var/lib/apt/lists/*
 
-## Clean dependencies
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/*
-
-ENV OH_HOME="/opt/oh/sdk"
+ENV OH_HOME="/opt/oh"
 # https://developer.huawei.com/consumer/cn/download/
 ARG OH_VERSION=5.0.3.906
 COPY commandline-tools-linux-x64-${OH_VERSION}.zip /tmp/commandline-tools-linux-x64-${OH_VERSION}.zip
