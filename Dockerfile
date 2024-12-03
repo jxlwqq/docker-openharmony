@@ -56,7 +56,8 @@ RUN mkdir -p $HOME/.hvigor/wrapper/tools && \
     npm install
 
 # Disable git safe directory check as this is causing GHA to fail on GH Runners
-RUN git config --global --add safe.directory '*'
+# File name too long error
+RUN git config --global --add safe.directory '*' && git config --global core.longpaths true
 
 # set RNOH_C_API_ARCH for React Native OpenHarmony
 # https://gitee.com/openharmony-sig/ohos_react_native/blob/master/docs/zh-cn/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md
