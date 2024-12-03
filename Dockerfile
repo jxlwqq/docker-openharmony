@@ -35,7 +35,7 @@ RUN apt-get update && \
 
 ENV OH_HOME="/opt/oh"
 # https://developer.huawei.com/consumer/cn/download/
-ARG OH_VERSION=5.0.3.906
+ARG OH_VERSION=5.0.5.300
 COPY commandline-tools-linux-x64-${OH_VERSION}.zip /tmp/commandline-tools-linux-x64-${OH_VERSION}.zip
 RUN mkdir -p ${OH_HOME} && \
     unzip /tmp/commandline-tools-linux-x64-${OH_VERSION}.zip -d ${OH_HOME} && \
@@ -58,5 +58,21 @@ RUN mkdir -p $HOME/.hvigor/wrapper/tools && \
 # Disable git safe directory check as this is causing GHA to fail on GH Runners
 RUN git config --global --add safe.directory '*'
 
-# smoke test
+# set RNOH_C_API_ARCH for React Native OpenHarmony
+# https://gitee.com/openharmony-sig/ohos_react_native/blob/master/docs/zh-cn/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md
+ENV RNOH_C_API_ARCH=1
+
+# Flutter OpenHarmony
+# https://gitee.com/openharmony-sig/flutter_flutter
+ARG FLUTTER_VERSION="3.7.12-ohos-1.0.2"
+ENV FLUTTER_HOME="/usr/local/flutter-sdk"
+# Download Flutter SDK
+RUN mkdir -p $FLUTTER_HOME && \
+    git clone -b $FLUTTER_VERSION https://gitee.com/openharmony-sig/flutter_flutter.git $FLUTTER_HOME
+ENV PATH=$PATH:$FLUTTER_HOME/bin
+ENV PUB_HOSTED_URL="https://pub.flutter-io.cn"
+ENV FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
+RUN flutter doctor -v
+
+# Smoke test
 RUN ohpm -v
