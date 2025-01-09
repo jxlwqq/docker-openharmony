@@ -22,6 +22,7 @@ RUN apt-get update && \
     java-17-amazon-corretto-jdk \
     wget \
     git \
+    git-lfs \
     build-essential \
     zlib1g-dev \
     libssl-dev \
@@ -35,7 +36,7 @@ RUN apt-get update && \
 
 ENV OH_HOME="/opt/oh"
 # https://developer.huawei.com/consumer/cn/download/
-ARG OH_VERSION=5.0.5.300
+ARG OH_VERSION=5.0.5.310
 COPY commandline-tools-linux-x64-${OH_VERSION}.zip /tmp/commandline-tools-linux-x64-${OH_VERSION}.zip
 RUN mkdir -p ${OH_HOME} && \
     unzip /tmp/commandline-tools-linux-x64-${OH_VERSION}.zip -d ${OH_HOME} && \
@@ -65,7 +66,7 @@ ENV RNOH_C_API_ARCH=1
 
 # Flutter OpenHarmony
 # https://gitee.com/openharmony-sig/flutter_flutter
-ARG FLUTTER_VERSION="3.7.12-ohos-1.0.2"
+ARG FLUTTER_VERSION="3.7.12-ohos-1.0.3"
 ENV FLUTTER_HOME="/usr/local/flutter-sdk"
 # Download Flutter SDK
 RUN mkdir -p $FLUTTER_HOME && \
