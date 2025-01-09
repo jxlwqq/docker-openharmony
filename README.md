@@ -2,7 +2,7 @@
 
 OpenHarmony 5.0 容器镜像，基于 `ubuntu:22.04`：
 * JDK 使用 `java-17-amazon-corretto-jdk`；
-* commandline-tools 版本：`5.0.5.300`，由于下载过程需要 Auth 认证，暂时只能在 [华为开发者联盟-下载中心](https://developer.huawei.com/consumer/cn/download/) 手动下载；
+* commandline-tools 版本：`5.0.5.310`，由于下载过程需要 Auth 认证，暂时只能在 [华为开发者联盟-下载中心](https://developer.huawei.com/consumer/cn/download/) 手动下载；
 * 支持 OpenHarmony React Native 和 OpenHarmony Flutter 工程；
 * 内置 json5，可将 json5 转换为 json，方便 jq 操作；
 * 内置 pnpm@8.13.1，开箱即用，无需 hvigor 重复安装；
@@ -10,9 +10,9 @@ OpenHarmony 5.0 容器镜像，基于 `ubuntu:22.04`：
 ## 使用
 
 ```bash
-docker pull jxlwqq/openharmony:5.0.5.300
+docker pull jxlwqq/openharmony:5.0.5.310
 
-docker run -it --rm jxlwqq/openharmony:5.0.5.300 ohpm -v
+docker run -it --rm jxlwqq/openharmony:5.0.5.310 ohpm -v
 ```
 
 ## Todo
